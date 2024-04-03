@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>!!TITLE</title>
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:5432/style.css">
+</head>
+<body>
+
+    
+    <h1 style="padding-left: 2rem; margin-bottom: 0px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        Bulk Last Scan results table
+    </h1>
+    
+    <p style="padding-left: 2rem; margin-bottom: 0px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        Link to original CSV: !!A
+    </p>
+
+    <div class="flex-container">
+        
+        <div class="flex-item panel" style="padding-right: 0rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border: none;">
+
+            <p id="csv">!!DATA</p>
+
+            <div id="tabletable">
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function csvToHtmlTable(csvString) 
+        {
+            // Split CSV into rows
+            const rows = csvString.split('\n');
+            // Create the table element
+            let tableHtml = '<table border="1">';
+            // Process each row
+            rows.forEach((row) => 
+            {
+                if(row.length < 5)
+                    return;
+
+                tableHtml += '<tr>';
+                // Split row into columns
+                const columns = row.split(',');
+                // Process each column
+                columns.forEach((column) => 
+                {
+                    tableHtml += `<td>${column}</td>`;
+                });
+                tableHtml += '</tr>';
+            });
+            // Close the table element
+            tableHtml += '</table>';
+            return tableHtml;
+        }
+
+        let csv = document.getElementById("csv").innerHTML;
+        document.getElementById("csv").style.display = "none";
+        let table = csvToHtmlTable(csv);
+        document.getElementById("tabletable").insertAdjacentHTML("beforeend", table);
+    </script>
+</body>
+</html>

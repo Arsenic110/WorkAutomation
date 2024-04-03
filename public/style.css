@@ -1,0 +1,195 @@
+@font-face {
+    font-family: Righteous;
+    src: url("res/Righteous-Regular.ttf");
+}
+
+body 
+{
+    font-family: 'Segoe UI', Consolas;
+
+    font-weight: lighter !important;
+
+    min-width: var(--scrollbar-width);
+    min-height: var(--scrollbar-height);
+
+    background-color: #171717;
+    color:white;
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8
+{
+    font-weight: inherit;
+}
+
+button
+{
+    font-family: inherit;
+    padding: 0.2rem 0.4rem;
+    margin: 0.1rem -0.1em;
+    border: 2px solid #373737;
+    background-color: #171717;
+    color:white;
+  
+    font-size: medium;
+    transition: 0.2s;
+}
+button:hover
+{
+    border: 2px solid #505050;
+    background-color: #373737;
+}
+button:active
+{
+    border: 2px solid #b5f19c;
+    background-color: #007711;
+}
+
+pre
+{
+    font-size: medium;
+
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+
+.flex-container
+{
+    display: flex;
+    padding: 0rem;
+    height: 88vh;
+}
+
+.flex-item
+{
+    margin:1rem;
+    flex: 1;
+    border: 2px solid #373737;
+    padding: 1rem;
+}
+
+.flex-style
+{
+    margin:1rem;
+    border: 2px solid #373737;
+    background-color: #171717;
+    padding: 1rem;
+}
+
+.flex-item p p
+{
+    width: 100%;
+}
+
+.flex-item-nostyle
+{
+    flex: 1;
+    padding: 1rem;
+}
+
+.flex-item-rtogen
+{
+    margin:1rem;
+    flex: 2;
+    border: 2px solid #373737;
+    padding: 1.5rem;
+}
+
+.panel
+{
+    border: 2px solid #373737;
+}
+
+.console-window
+{
+    overflow: auto;
+
+}
+
+.console 
+{
+    color:white;
+}
+
+textarea
+{
+  font-family: inherit;
+  border: 2px solid #373737;
+  background-color: #171717;
+  color:white;
+  resize: none;
+}
+
+#rtogen
+{
+    margin-right:1rem;
+}
+
+.search-panel
+{
+    max-width: 50%;
+    height: 3rem;
+
+}
+
+.search-panel-font
+{
+    font-size: 2.5rem;
+}
+
+.center 
+{
+    margin: auto;
+    width: 50%;
+}
+
+a
+{
+    position: relative;
+
+    font-size: 1.3rem;
+    font-weight: 2;
+
+    text-decoration: none;
+    color:#7fbdf0;
+
+    transition: all 0.3s ease;
+}
+a:hover
+{
+    color:#b5f19c;
+}
+a:active
+{
+    transition: all 0.05s ease;
+    color: #FFFFFF;
+}
+a::before 
+{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #b5f19c;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+a:hover::before 
+{
+    transform: scaleX(1);
+}
+a:active::before
+{
+    transition: transform 0.05s ease, color 0.05s ease;
+    transform-origin: right;
+    transform: scaleX(0);
+    background-color: #FFFFFF;
+}
+

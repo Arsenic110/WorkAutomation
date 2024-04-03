@@ -1,0 +1,21 @@
+{
+  "name": "gui-server-control",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "chromedriver": "^121.0.0",
+    "exceljs": "^4.3.0",
+    "html-table-to-json": "^1.0.0",
+    "http": "^0.0.1-security",
+    "pngjs": "^7.0.0",
+    "selenium-webdriver": "^4.17.0",
+    "socket.io": "^4.6.1"
+  }
+}

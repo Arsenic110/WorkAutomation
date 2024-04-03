@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Work Automation GUI</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    
+    <h1 style="padding-left: 2rem; margin-bottom: 0px;">Work Automation Control</h1>
+
+    <div class="flex-container">
+        
+        <div class="flex-item panel">
+            <h4>Server operations</h4>
+            <div id="operations">
+                <button id="SEMS-export">Ticket Export</button>
+                <!-- <button id="SEMS-midday">SEMS Mid-Day Report</button> -->
+                <button id="rsd-cfd">RSDCFD Report</button>
+                <button id="half8email">Half 8 Report</button>
+
+                <h4>API operations
+                    <textarea style="display:inline; float: right; height: 6.3rem; width: 15rem;" id="con" placeholder="Consignment"></textarea>
+                </h4>
+                
+                <button id="/todos">Todos</button>
+                <button id="/api/status">API Status</button>
+                <button id="/api/con/lastscan" style="display: none;">Lastscan</button>
+                <button id="/api/con/lastscanbulk">Lastscan Bulk Report</button>
+            </div>
+        </div>
+        <div class="flex-item console-window">
+            <button onclick="clearConsole()">Clear</button>
+            <p class="console" id="console-p"></p>
+
+        </div>
+    </div>
+
+    <h1 style="padding-left: 2rem; margin-bottom: 0px;" id="rtogen" >Template Gen</h1>
+
+    <div class="flex-container">
+        <div class="flex-item-rtogen panel">
+          
+          <textarea id="name" placeholder="Name"></textarea>
+          <button onclick="copyToClip(document.getElementById(`console-p-rtogen`).value)" style="float:right">Copy</button>
+          </br>
+          <textarea id="id" placeholder="DN"></textarea>
+          <textarea id="eta" placeholder="ETA"></textarea>
+          </br>
+          <button onclick="generateRTO()">RTO</button>
+          <button onclick="generateRTO(true)">RTO-D</button>
+          <button onclick="generateCOA()">COA</button>
+          <button onclick="generateCOA(true)">COA-D</button>
+          <button onclick="generateRSD()">RSD</button>
+          <button onclick="generateRSD(true)">RSD-D</button>
+          <button onclick="generateU()">Generic Update</button>
+          <button onclick="generateI()">Investigation</button>
+          <br>
+          <button onclick="generateIU()">Investigation Update</button>
+          <button onclick="generatePending()">SEMS Pending Delivery</button>
+          <button onclick="generateDelivered()">Delivered</button>
+          <button onclick="generateNotInNet()">Not In Network</button>
+          <br>
+          <button onclick="generateNonCarrierIssue()">Non Carrier Issue</button>
+          <button onclick="generateRefuseError()">Refused in Error</button>
+          <button onclick="generateRefuseError(true)">Refused in Error-D</button>
+          <button onclick="generateDoNotReassign()">No comment reassign</button>
+          <button onclick="generateOFD()">OFD</button>
+          <br>
+          <button onclick="generatePPAL()">PPAL</button>
+          <button onclick="generateFutureDelivery()">Future Delivery Date</button>
+          <button onclick="generateClaimAccepted()">Claim Accepted</button>
+          <button onclick="generateRequestCall()">Request Call</button>
+          <button onclick="noPhysicalScans()">No Physical Scans</button>
+          <br>
+          <button onclick="completedRecycleProcess()">RMA</button>
+          <button onclick="callAngry()">Call but Angry</button>
+
+          <br>
+          <br>
+          <br>
+
+          <button onclick="dellTemplate()">Dell More Info</button>
+          <button onclick="dellRevert()">Dell Revert</button>
+          <button onclick="dellClose()">Dell Close</button>
+
+        </div>
+
+        <textarea class="console flex-item console-window" id="console-p-rtogen" style="font-family: 'Segoe UI', Consolas; font-weight: lighter !important; font-size: 1rem;"></textarea>
+    </div>
+
+    <h1 style="padding-left: 2rem; margin-bottom: 0px;" id="rtogen">Utilities</h1>
+
+    <div class="flex-container">
+        <div class="flex-item panel">
+            <h4>Comma Copy <button style="float:right" onclick="commaCopyPaste()">Manual trigger</button></h4>
+            <textarea style="height: 40%; width: 99%;" id="comma" placeholder="Paste text here..." onpaste="commaCopyPaste()"></textarea>
+
+        </div>
+        <div class="flex-item panel">
+            <h4>Datalog <button style="float:right" onclick="sendDatalog()">Send</button></h4>
+            <textarea style="height: 40%; width: 99%;" id="datalogText" placeholder="50 characters per line"></textarea>
+        </div>
+    </div>
+    
+    <!-- This is my own library! No credits needed! -->
+    <script src="https://cdn.statically.io/gh/Arsenic110/Draggables/main/draggables.min.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

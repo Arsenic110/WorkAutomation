@@ -6,6 +6,7 @@ const syncfs = require("fs");
 const CColor = require("./class/ConsoleColors.js");
 const d = require('./class/DebugLog');
 
+
 let config;
 config = reloadJSON("server/config.json"); //this is done to allow fast reloading of json while the program is running.
 
